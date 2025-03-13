@@ -1,20 +1,24 @@
 import { useState } from "react";
 import "./App.css";
 import ShutterScreen from "./components/ShutterScreen";
+import Header from "./components/Header";
+import Body from "./components/Body";
 
-function App() {
+const App = () => {
   const [entered, setEntered] = useState(false);
 
   return (
-    <div className="min-h-screen bg-black text-light-lime-green font-orbitron">
-      {!entered && <ShutterScreen onEnter={() => setEntered(true)} />}
-      {entered && (
-        <main className="p-10">
-          <h1 className="text-4xl">Welcome to My Cyberpunk Portfolio</h1>
-        </main>
+    <>
+      {!entered ? (
+        <ShutterScreen onEnter={() => setEntered(true)} />
+      ) : (
+        <div>
+          <Header />
+          <Body />
+        </div>
       )}
-    </div>
+    </>
   );
-}
+};
 
 export default App;

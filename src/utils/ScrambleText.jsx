@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 
-const ScrambleText = ({ text, speed = 100 }) => {
+const ScrambleText = ({ text, speed = 100, erase = false }) => {
   const [displayedText, setDisplayedText] = useState("");
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
   useEffect(() => {
-    let index = 0;
+    let index = erase ? text.length : 0;
 
-    const revealNextLetter = () => {
-      if (index < text.length) {
+    const updateText = () => {
+      if (!erase && index < text.length) {
+        // Scrambling Effect
         let scrambled = "";
         let scrambleInterval = setInterval(() => {
           scrambled =
@@ -19,15 +20,22 @@ const ScrambleText = ({ text, speed = 100 }) => {
 
         setTimeout(() => {
           clearInterval(scrambleInterval);
-          setDisplayedText(text.substring(0, index + 1)); // Reveal correct character
+          setDisplayedText(text.substring(0, index + 1)); // Reveal correct letter
           index++;
-          revealNextLetter();
+          updateText();
+        }, speed);
+      } else if (erase && index > 0) {
+        // Erasing Effect
+        setTimeout(() => {
+          setDisplayedText(text.substring(0, index - 1)); // Remove last letter
+          index--;
+          updateText();
         }, speed);
       }
     };
 
-    revealNextLetter();
-  }, [text, speed]);
+    updateText();
+  }, [text, speed, erase]);
 
   return <span>{displayedText}</span>;
 };

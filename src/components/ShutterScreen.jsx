@@ -7,6 +7,7 @@ const ShutterScreen = ({ onEnter }) => {
   const [count, setCount] = useState(0);
   const [loadingDone, setLoadingDone] = useState(false);
   const [showText, setShowText] = useState(false);
+  const [erasing, setErasing] = useState(false);
 
   const totalDuration = 1000; // 1 second for full animation
   const steps = 30; // Number of steps for counter
@@ -32,9 +33,19 @@ const ShutterScreen = ({ onEnter }) => {
     return () => clearInterval(interval);
   }, []);
 
+  // const handleClick = () => {
+  //   setClicked(true);
+  //   setTimeout(onEnter, 1000);
+  // };
+
   const handleClick = () => {
-    setClicked(true);
-    setTimeout(onEnter, 1000);
+    if (!erasing) {
+      setErasing(true); // Start erasing animation
+      setTimeout(() => {
+        setClicked(true); // After erasing, trigger shutter effect
+        setTimeout(onEnter, 1000);
+      }, 1000); // Give enough time for erase effect
+    }
   };
 
   return (
@@ -57,59 +68,47 @@ const ShutterScreen = ({ onEnter }) => {
 
       {/* Navbar (Appears After Loading Completes) */}
       {!clicked && loadingDone && (
-        <div className="absolute top-10 right-10 text-xl">
+        <div className="absolute top-10 right-10 text-xl cursor-pointer">
           <ul className="flex flex-row space-x-12">
-            {["About", "Projects", "Skills", "Contact"].map((item) => (
-              <li key={item} className="px-4">
-                <button
-                  onClick={() => handleClick(item)}
-                  className="focus:outline-none cursor-pointer"
-                >
-                  [&nbsp;
-                  <span className="inline-block min-w-[10ch]">
-                    {showText && <ScrambleText text={item} speed={200} />}
-                  </span>
-                  &nbsp;]
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-      {/* {!clicked && loadingDone && (
-        <div className="absolute top-10 right-10 text-xl">
-          <ul className="flex flex-row space-x-12">
-            <li className="px-4">
+            <li className="px-6 flex items-center gap-2" onClick={handleClick}>
+              [
+              <span className="inline-block min-w-[5ch]">
+                {showText && (
+                  <ScrambleText text="About" speed={200} erase={erasing} />
+                )}
+              </span>
+              ]
+            </li>
+            <li className="px-6 flex items-center gap-2" onClick={handleClick}>
+              [
+              <span className="inline-block min-w-[8ch]">
+                {showText && (
+                  <ScrambleText text="Projects" speed={200} erase={erasing} />
+                )}
+              </span>
+              ]
+            </li>
+            <li className="px-6 flex items-center gap-2" onClick={handleClick}>
               [
               <span className="inline-block min-w-[6ch]">
-                {showText && <ScrambleText text="About" speed={200} />}
+                {showText && (
+                  <ScrambleText text="Skills" speed={200} erase={erasing} />
+                )}
               </span>
               ]
             </li>
-            <li className="px-4">
+            <li className="px-6 flex items-center gap-2" onClick={handleClick}>
               [
-              <span className="inline-block min-w-[12ch]">
-                {showText && <ScrambleText text="Projects" speed={200} />}
-              </span>
-              ]
-            </li>
-            <li className="px-4">
-              [
-              <span className="inline-block min-w-[6ch]">
-                {showText && <ScrambleText text=" Skills " speed={200} />}
-              </span>
-              ]
-            </li>
-            <li className="px-4">
-              [
-              <span className="inline-block min-w-[10ch]">
-                {showText && <ScrambleText text="Contact" speed={200} />}
+              <span className="inline-block min-w-[7ch]">
+                {showText && (
+                  <ScrambleText text="Contact" speed={200} erase={erasing} />
+                )}
               </span>
               ]
             </li>
           </ul>
         </div>
-      )} */}
+      )}
 
       {/* Loading (Left) */}
       {!clicked && (
@@ -117,6 +116,7 @@ const ShutterScreen = ({ onEnter }) => {
           <ScrambleText
             text="Loading"
             speed={totalDuration / "Loading".length}
+            erase={erasing}
           />
         </div>
       )}
@@ -127,14 +127,20 @@ const ShutterScreen = ({ onEnter }) => {
       {/* Click to Enter (Appears After Loading Completes) */}
       {!clicked && loadingDone && (
         <motion.div
-          className="absolute bottom-20 right-25 cursor-pointer z-10 text-2xl font-bold"
+          className="absolute bottom-15 right-25 cursor-pointer z-10 text-2xl flex items-center gap-2 "
           onClick={handleClick}
         >
-          [&nbsp;
-          <span className="inline-block min-w-[20ch]">
-            {showText && <ScrambleText text="Click  to  Explore" speed={50} />}
+          [
+          <span className="inline-block min-w-[14ch]">
+            {showText && (
+              <ScrambleText
+                text="Click  to  Explore"
+                speed={50}
+                erase={erasing}
+              />
+            )}
           </span>
-          &nbsp;]
+          ]
         </motion.div>
       )}
     </div>
