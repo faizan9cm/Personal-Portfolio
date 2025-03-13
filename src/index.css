@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-light-lime-green: #c3ff49;
+}
+
+@font-face {
+  font-family: "arcade";
+  src: url("/src/assets/fonts/ARCADECLASSIC.TTF") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.arcade-font {
+  font-family: "arcade", sans-serif;
+}
