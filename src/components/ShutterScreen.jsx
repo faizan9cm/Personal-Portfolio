@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import ScrambleText from "../utils/ScrambleText";
+import { RESUME_URL } from "../utils/constants";
 
 const ShutterScreen = ({ onEnter }) => {
   const [clicked, setClicked] = useState(false);
@@ -33,11 +34,6 @@ const ShutterScreen = ({ onEnter }) => {
     return () => clearInterval(interval);
   }, []);
 
-  // const handleClick = () => {
-  //   setClicked(true);
-  //   setTimeout(onEnter, 1000);
-  // };
-
   const handleClick = () => {
     if (!erasing) {
       setErasing(true); // Start erasing animation
@@ -66,6 +62,39 @@ const ShutterScreen = ({ onEnter }) => {
         transition={{ duration: 1 }}
       />
 
+      {/* About */}
+      {!clicked && (
+        <div className="absolute top-25 left-20 text-4xl">
+          <ScrambleText
+            text="//: HI, I'M  FAIZAN"
+            speed={100}
+            erase={erasing}
+          />
+        </div>
+      )}
+
+      {/* Resume */}
+      {!clicked && loadingDone && (
+        <motion.div
+          className="absolute bottom-25 left-25 cursor-pointer z-10 text-2xl flex items-center gap-2"
+          onClick={() => {
+            const link = document.createElement("a");
+            link.href = RESUME_URL;
+            link.target = "_blank";
+            link.download = "Faizan_Habib_Resume.pdf"; // Optional, helps rename file
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }}
+        >
+          [
+          <span className="inline-block min-w-[5ch]">
+            {showText && <ScrambleText text="Resume" speed={200} />}
+          </span>
+          ]
+        </motion.div>
+      )}
+
       {/* Navbar (Appears After Loading Completes) */}
       {!clicked && loadingDone && (
         <div className="absolute top-10 right-10 text-xl cursor-pointer">
@@ -73,36 +102,28 @@ const ShutterScreen = ({ onEnter }) => {
             <li className="px-6 flex items-center gap-2" onClick={handleClick}>
               [
               <span className="inline-block min-w-[5ch]">
-                {showText && (
-                  <ScrambleText text="About" speed={200} erase={erasing} />
-                )}
+                {showText && <ScrambleText text="About" speed={200} />}
               </span>
               ]
             </li>
             <li className="px-6 flex items-center gap-2" onClick={handleClick}>
               [
               <span className="inline-block min-w-[8ch]">
-                {showText && (
-                  <ScrambleText text="Projects" speed={200} erase={erasing} />
-                )}
+                {showText && <ScrambleText text="Projects" speed={200} />}
               </span>
               ]
             </li>
             <li className="px-6 flex items-center gap-2" onClick={handleClick}>
               [
               <span className="inline-block min-w-[6ch]">
-                {showText && (
-                  <ScrambleText text="Skills" speed={200} erase={erasing} />
-                )}
+                {showText && <ScrambleText text="Skills" speed={200} />}
               </span>
               ]
             </li>
             <li className="px-6 flex items-center gap-2" onClick={handleClick}>
               [
               <span className="inline-block min-w-[7ch]">
-                {showText && (
-                  <ScrambleText text="Contact" speed={200} erase={erasing} />
-                )}
+                {showText && <ScrambleText text="Contact" speed={200} />}
               </span>
               ]
             </li>

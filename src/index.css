@@ -1,7 +1,12 @@
 @import "tailwindcss";
 
+:root {
+  --tw-color-black: #0b090a;
+}
+
 @theme {
   --color-light-lime-green: #c3ff49;
+  --color-navbar: #1f1f1f;
 }
 
 @font-face {
@@ -13,4 +18,63 @@
 
 .arcade-font {
   font-family: "arcade", sans-serif;
+}
+
+.clip-diagonal {
+  --edge-size: 1em;
+  clip-path: polygon(
+    0% var(--edge-size),
+    var(--edge-size) 0,
+    100% 0,
+    100% calc(100% - var(--edge-size)),
+    calc(100% - var(--edge-size)) 100%,
+    0 100%
+  );
+}
+
+.clip-diagonal-bottom {
+  --edge-size: 1.5em;
+  clip-path: polygon(
+    0% 0,
+    100% 0,
+    100% calc(100% - var(--edge-size)),
+    calc(100% - var(--edge-size)) 100%,
+    var(--edge-size) 100%,
+    0% calc(100% - var(--edge-size))
+  );
+}
+
+.clip-diagonal-top {
+  --edge-size: 1.5em;
+  clip-path: polygon(
+    0% var(--edge-size),
+    var(--edge-size) 0,
+    calc(100% - var(--edge-size)) 0,
+    100% var(--edge-size),
+    100% 100%,
+    0% 100%
+  );
+}
+
+.clip-diagonal-top-right {
+  --edge-size: 1.5em;
+  clip-path: polygon(
+    0% 0,
+    var(--edge-size) 0,
+    calc(100% - var(--edge-size)) 0,
+    100% var(--edge-size),
+    100% 100%,
+    0% 100%
+  );
+}
+
+.clip-diagonal-top-left {
+  --edge-size: 2em;
+  clip-path: polygon(
+    0% var(--edge-size),
+    var(--edge-size) 0,
+    100% 0,
+    100% 100%,
+    0% 100%
+  );
 }

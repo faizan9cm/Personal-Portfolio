@@ -1,7 +1,19 @@
+import About from "./About";
+import Certificate from "./Certificate";
+import Contact from "./Contact";
+import Footer from "./Footer";
+import Project from "./Project";
+import Skill from "./Skill";
+
 const Body = () => {
   return (
-    <div className="min-h-screen bg-black text-white flex justify-center items-center">
-      <h1 className="text-4xl">Welcome to My Website</h1>
+    <div className="bg-black">
+      <About />
+      <Project />
+      <Skill />
+      <Certificate />
+      <Contact />
+      <Footer />
     </div>
   );
 };
