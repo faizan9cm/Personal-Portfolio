@@ -8,11 +8,11 @@ import Skill from "./Skill";
 const Body = () => {
   return (
     <div className="bg-black">
-      <About />
-      <Project />
-      <Skill />
-      <Certificate />
-      <Contact />
+      <About id="about" />
+      <Project id="projects" />
+      <Skill id="skills" />
+      <Certificate id="certificates" />
+      <Contact id="contact" />
       <Footer />
     </div>
   );

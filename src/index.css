@@ -4,9 +4,16 @@
   --tw-color-black: #0b090a;
 }
 
-@theme {
-  --color-light-lime-green: #c3ff49;
-  --color-navbar: #1f1f1f;
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: "Inter", sans-serif;
+  }
 }
 
 @font-face {
@@ -18,6 +25,196 @@
 
 .arcade-font {
   font-family: "arcade", sans-serif;
+}
+
+@theme {
+  --color-light-lime-green: #c3ff49;
+  --light-cyan: #00ffcc;
+  --neon-green: #00ff00;
+  --neon-cyan: #00ffff;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #000 inset !important; /* Black background */
+  -webkit-text-fill-color: #00ffcc !important; /* Cyan text */
+  caret-color: #00ffcc !important; /* Cyan cursor */
+}
+
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #000 inset !important; /* Black background */
+  -webkit-text-fill-color: #00ffcc !important; /* Cyan text */
+  caret-color: #00ffcc !important; /* Cyan cursor */
+}
+
+/* Neon Text Effect */
+.neon-text {
+  text-shadow: 0 0 5px rgba(200, 255, 0, 0.8), 0 0 10px rgba(200, 255, 0, 0.6),
+    0 0 20px rgba(200, 255, 0, 0.4);
+}
+
+.glow-image-cyan {
+  box-shadow: 0 0 10px rgba(0, 255, 204, 0.8), 0 0 20px rgba(0, 255, 204, 0.6),
+    0 0 30px rgba(0, 255, 204, 0.4);
+}
+
+/* ====================================== */
+
+/* Progress Bar Glow Animation */
+@keyframes progress-glow {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.animate-progress-glow {
+  animation: progress-glow 1.5s infinite;
+}
+
+@keyframes glow {
+  0% {
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: none;
+  }
+  100% {
+    background: var(--bgColor);
+    box-shadow: 0 0 10px var(--bgColor);
+  }
+}
+
+.points {
+  animation: glow 0.04s linear forwards;
+}
+
+/* Floating Particles Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(20px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+.animate-float {
+  animation: float infinite ease-in-out;
+}
+
+/* Neon Line Animation */
+@keyframes neon-line {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-neon-line {
+  background: linear-gradient(90deg, #00ffcc, #67f82e, #00ffcc);
+  background-size: 200% 200%;
+  animation: neon-line 3s linear infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Base Skill Border */
+.skill-border {
+  position: relative;
+  background: transparent;
+  border: 1px solid rgba(0, 255, 204, 0.7);
+  transition: border-color 0.3s ease-in-out;
+}
+
+.skill-border:hover {
+  border-color: #00ffcc;
+}
+
+/* Holographic Effects */
+.holo-glitch {
+  animation: hologram 0.7s linear infinite alternate;
+  filter: drop-shadow(0 0 8px #00ffcc);
+}
+
+@keyframes hologram {
+  0% {
+    transform: scale(1) skewX(0deg);
+    opacity: 0.8;
+  }
+  25% {
+    transform: scale(1.02) skewX(-5deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1) skewX(0deg);
+    opacity: 0.9;
+  }
+  75% {
+    transform: scale(1.02) skewX(5deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) skewX(0deg);
+    opacity: 0.8;
+  }
+}
+
+.holo-ring {
+  animation: energyPulse 1s ease-in-out infinite alternate;
+  box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 40px #00ffcc;
+}
+
+@keyframes energyPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* ==== clip corner ==== */
+.cut-corner {
+  clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
 }
 
 .clip-diagonal {
@@ -76,5 +273,86 @@
     100% 0,
     100% 100%,
     0% 100%
+  );
+}
+
+.clip-diagonal-bottom-left {
+  --edge-size: 1.5em;
+  clip-path: polygon(
+    0% 0,
+    100% 0,
+    100% calc(100% - var(--edge-size)),
+    100% 100%,
+    var(--edge-size) 100%,
+    0% calc(100% - var(--edge-size))
+  );
+}
+
+.clip-diagonal-bottom-left-big {
+  --edge-size: 3em;
+  clip-path: polygon(
+    0% 0,
+    100% 0,
+    100% calc(100% - var(--edge-size)),
+    100% 100%,
+    var(--edge-size) 100%,
+    0% calc(100% - var(--edge-size))
+  );
+}
+
+.clip-square-middle-left {
+  --cut-size: 1.5em;
+  --cut-position: 50%;
+
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 100%,
+    0% 100%,
+    0% calc(var(--cut-position) + var(--cut-size)),
+    var(--cut-size) calc(var(--cut-position) + var(--cut-size)),
+    var(--cut-size) calc(var(--cut-position) - var(--cut-size)),
+    0% calc(var(--cut-position) - var(--cut-size))
+  );
+}
+
+.clip-square-middle-top {
+  --cut-size: 1.5em;
+  --cut-position: 50%;
+
+  clip-path: polygon(
+    0% 0%,
+    calc(var(--cut-position) - var(--cut-size)) 0%,
+    calc(var(--cut-position) - var(--cut-size)) var(--cut-size),
+    calc(var(--cut-position) + var(--cut-size)) var(--cut-size),
+    calc(var(--cut-position) + var(--cut-size)) 0%,
+    100% 0%,
+    100% 100%,
+    0% 100%
+  );
+}
+
+.clip-square-offset-left-top {
+  --cut-size: 1.5em;
+  --cut-position-top: 50%;
+  --cut-position-left: 70%;
+
+  clip-path: polygon(
+    /* Top Cut */ 0% 0%,
+    calc(var(--cut-position-top) - 2.5em) 0%,
+    calc(var(--cut-position-top) - var(--cut-size)) var(--cut-size),
+    calc(var(--cut-position-top) + var(--cut-size)) var(--cut-size),
+    calc(var(--cut-position-top) + 2.5em) 0%,
+    100% 0%,
+
+    /* Right Side */ 100% 100%,
+
+    /* Bottom Side */ 0% 100%,
+
+    /* Left Cut (Lowered More) */ 0%
+      calc(var(--cut-position-left) + var(--cut-size)),
+    3.5em calc(var(--cut-position-left) + var(--cut-size)),
+    3.5em calc(var(--cut-position-left) - var(--cut-size)),
+    0% calc(var(--cut-position-left) - var(--cut-size))
   );
 }
