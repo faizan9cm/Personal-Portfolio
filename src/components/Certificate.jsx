@@ -2,52 +2,13 @@ import React, { useState, useRef } from "react";
 import CertificateCard from "./CertificateCard";
 import BigCertificateCard from "./BigCertificateCard";
 import { motion, AnimatePresence } from "framer-motion";
-import portfolio from "../assets/images/portfolio.png";
+import { certifications } from "../utils/certificateData";
 
 const Certificate = ({ id }) => {
   const [showAll, setShowAll] = useState(false);
   const [selectedCertificate, setSelectedCertificate] = useState(null);
   const sectionRef = useRef(null);
   const buttonRef = useRef(null);
-
-  const certifications = [
-    {
-      title: "Machine Learning Specialization",
-      issuer: "Coursera",
-      date: "Oct 2023",
-      imageSrc: portfolio,
-    },
-    {
-      title: "Full Stack Web Development",
-      issuer: "Udemy",
-      date: "Sep 2023",
-      imageSrc: portfolio,
-    },
-    {
-      title: "Full Stack Web Development",
-      issuer: "Udemy",
-      date: "Sep 2023",
-      imageSrc: portfolio,
-    },
-    {
-      title: "Machine Learning Specialization",
-      issuer: "Coursera",
-      date: "Oct 2023",
-      imageSrc: portfolio,
-    },
-    {
-      title: "Full Stack Web Development",
-      issuer: "Udemy",
-      date: "Sep 2023",
-      imageSrc: portfolio,
-    },
-    {
-      title: "Full Stack Web Development",
-      issuer: "Udemy",
-      date: "Sep 2023",
-      imageSrc: portfolio,
-    },
-  ];
 
   const handleShowAllClick = () => {
     setShowAll(!showAll);

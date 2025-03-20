@@ -2,72 +2,13 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import BigProjectCard from "./BigProjectCard";
-import portfolio from "../assets/images/portfolio.png";
+import projectList from "../utils/projectData";
 
 const Project = ({ id }) => {
   const [showAll, setShowAll] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const sectionRef = useRef(null);
   const buttonRef = useRef(null);
-
-  const projectList = [
-    {
-      title: "AI Interview Assistant",
-      tech: "React, Node.js, OpenAI",
-      desc: "Description",
-      link: "#",
-      imageSrc: portfolio,
-    },
-    {
-      title: "Cyberpunk Portfolio",
-      tech: "Tailwind, React",
-      desc: "Description",
-      link: "#",
-      imageSrc: portfolio,
-    },
-    {
-      title: "Speech Recognition Assistant",
-      tech: "Python, NLP",
-      desc: "Description",
-      link: "#",
-      imageSrc: portfolio,
-    },
-    {
-      title: "AI Interview Assistant",
-      tech: "React, Node.js, OpenAI",
-      desc: "Description",
-      link: "#",
-      imageSrc: portfolio,
-    },
-    {
-      title: "Cyberpunk Portfolio",
-      tech: "Tailwind, React",
-      desc: "Description",
-      link: "#",
-      imageSrc: portfolio,
-    },
-    {
-      title: "Speech Recognition Assistant",
-      tech: "Python, NLP",
-      desc: "Description",
-      link: "#",
-      imageSrc: portfolio,
-    },
-    {
-      title: "Cyberpunk Portfolio",
-      tech: "Tailwind, React",
-      desc: "Description",
-      link: "#",
-      imageSrc: portfolio,
-    },
-    {
-      title: "Speech Recognition Assistant",
-      tech: "Python, NLP",
-      desc: "Description",
-      link: "#",
-      imageSrc: portfolio,
-    },
-  ];
 
   const handleShowAllClick = () => {
     setShowAll(!showAll); // Toggle the `showAll` state

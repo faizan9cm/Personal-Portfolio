@@ -44,7 +44,7 @@ const Footer = () => {
               <span className="text-xs text-gray-200">[ DISCORD ]</span>
             </a>
             <a
-              href="https://www.patreon.com/YOUR_USERNAME"
+              href="https://www.patreon.com/faizan9cm"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-2 text-[#00ffcc] hover:text-[#67f82e] transition-colors duration-300"
