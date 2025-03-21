@@ -16,6 +16,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .mobile-expand {
+    height: 100% !important;
+  }
+}
+
 @font-face {
   font-family: "arcade";
   src: url("/src/assets/fonts/ARCADECLASSIC.TTF") format("truetype");

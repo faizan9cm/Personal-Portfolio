@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import BigProjectCard from "./BigProjectCard";
-import projectList from "../utils/projectData";
+import { projectList } from "../utils/projectData";
 
 const Project = ({ id }) => {
   const [showAll, setShowAll] = useState(false);
@@ -40,14 +40,18 @@ const Project = ({ id }) => {
     <section
       id={id}
       ref={sectionRef}
-      className="text-white pt-25 pb-10 px-10 relative"
+      className="text-white pt-25 pb-10 px-4 sm:px-6 md:px-10 relative"
     >
       {/* Cyberpunk Grid Background */}
       <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none"></div>
 
       <h3 className="text-4xl font-bold text-[#72fc3c] pb-10">//: Projects</h3>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ml-10 mt-10 mb-15 relative">
+      <div
+        className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-4 mt-10 sm:mt-6 relative justify-center ${
+          showAll ? "mb-6" : "mb-14"
+        }`}
+      >
         <AnimatePresence>
           {projectList.slice(0, 3).map((project, index) => (
             <motion.div
@@ -86,7 +90,7 @@ const Project = ({ id }) => {
                 ease: "easeOut",
                 delay: index * 0.15,
               }}
-              className="relative"
+              className="relative flex justify-center"
             >
               {/* Glitch Effect */}
               {showAll && (
@@ -143,7 +147,7 @@ const Project = ({ id }) => {
                   ease: "easeOut",
                   delay: index * 0.15,
                 }}
-                className="relative"
+                className="relative flex justify-center"
               >
                 {/* Glitch Effect */}
                 <motion.div
@@ -173,7 +177,7 @@ const Project = ({ id }) => {
         <motion.div
           ref={buttonRef} // Ref for the button
           onClick={handleShowAllClick}
-          className="absolute right-10 bottom-0 flex items-center justify-center w-10 h-10 border-2 border-[#00ffcc] text-[#00ffcc] text-xl cursor-pointer"
+          className="absolute right-4 sm:right-6 md:right-10 bottom-0 flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 border-2 border-[#00ffcc] text-[#00ffcc] text-lg sm:text-xl cursor-pointer"
           initial={{ rotate: 0, y: 0 }}
           animate={{ rotate: showAll ? 180 : 0, y: showAll ? 50 : 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}

@@ -25,7 +25,7 @@ const ProjectCard = ({ title, tech, desc, link, imageSrc, onClick }) => {
   return (
     <div
       ref={cardRef}
-      className="relative w-90 h-68 bg-[#111111] px-3 pt-3 rounded-md clip-diagonal-bottom-left group overflow-hidden transition-transform duration-500 cursor-pointer"
+      className="relative w-full max-w-[20rem] h-auto bg-[#111111] px-2 pt-2 rounded-md clip-diagonal-bottom-left group overflow-hidden transition-transform duration-500 cursor-pointer sm:max-w-[16rem] md:max-w-[22rem]"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
@@ -66,14 +66,15 @@ const ProjectCard = ({ title, tech, desc, link, imageSrc, onClick }) => {
       <img
         src={imageSrc}
         alt={title}
-        className="w-85 h-40 object-cover rounded-md clip-square-offset-left-top transition-transform duration-500 group-hover:scale-105 border-1 border-[#252525]"
+        className="w-full h-auto max-h-[8rem] object-cover rounded-md clip-square-offset-left-top transition-transform duration-500 group-hover:scale-105 border-1 border-[#252525]"
       />
 
       {/* Title Overlay */}
       <div className="pt-2 text-white text-center">
-        <h3 className="text-lg font-bold text-glow">{title}</h3>
-        <p className="text-sm text-[#00ffcc]">{tech}</p>
-        <p className="text-sm text-[#00ffcc]">{desc}</p>
+        <h3 className="text-base md:text-lg font-bold text-glow">{title}</h3>
+        <p className="text-xs md:text-sm text-[#00ffcc]">{tech}</p>
+        <p className="text-xs md:text-sm text-[#00ffcc]">{desc}</p>
+
         <a href={link} className="">
           [ Explore More ]
         </a>

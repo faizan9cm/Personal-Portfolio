@@ -28,7 +28,6 @@ const App = () => {
     <div>
       <Header />
       <Body />
-
       {/* Scroll to Top Button */}
       {showArrow && (
         <button

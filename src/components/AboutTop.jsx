@@ -27,7 +27,7 @@ const AboutTop = () => {
   }, [showMore]);
 
   return (
-    <section>
+    <section className="w-full">
       {/* Floating Neon Characters */}
       <AnimatePresence>
         {characters.map(({ id, char, x, y, delay }) => (
@@ -50,30 +50,28 @@ const AboutTop = () => {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="flex items-center h-90 w-300 px-5 mx-10 bg-transparent clip-diagonal-top-right relative"
+        className="flex flex-col md:flex-row lg:flex-row items-center h-auto md:h-90 w-full mx-auto bg-transparent clip-diagonal-top-right relative"
       >
         {/* Left Section */}
         <motion.div
           animate={{
-            width: showMore ? "100%" : "50%",
-            borderColor: showMore ? "#00ffcc" : "#000000", // Black by default, Cyan on click
+            maxWidth: showMore ? "1200px" : "900px", // Stays within limits
+            borderWidth: showMore ? "6px" : "0px",
+            borderColor: showMore ? "#00ffcc" : "#000000",
           }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          className={`px-5 py-5 h-80 bg-[#161616] transition-all duration-500 clip-diagonal-top-right relative flex border-2`} // Default border width
-          style={{
-            borderWidth: "6px", // Default border width
-          }}
+          className={`px-5 h-auto md:h-80 bg-[#161616] transition-all duration-500 clip-diagonal-top-right relative flex flex-col md:flex-row mx-auto ${
+            showMore ? "mobile-expand" : ""
+          }`}
         >
           {/* Image */}
-          <div className="flex-none w-[200px] flex items-center justify-center">
-            {" "}
-            {/* Center ImageCard vertically */}
+          <div className="flex justify-center items-center py-6 md:py-0">
             <ImageCard imageSrc={profileImage} title="Faizan Habib" />
           </div>
 
           {/* Expandable Text Section */}
-          <div className="flex items-center ml-5">
-            <div className="flex-1 flex flex-col text-sm text-justify leading-relaxed gap-4">
+          <div className="flex items-center md:ml-5 w-full pb-20 md:pb-0">
+            <div className="flex-1 flex flex-col text-sm md:text-lg text-justify leading-relaxed gap-4">
               <p>
                 Masters in Computer Science with a focus on Artificial
                 Intelligence and Machine Learning. My expertise spans machine
@@ -87,10 +85,16 @@ const AboutTop = () => {
               <AnimatePresence>
                 {showMore && (
                   <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: -20, width: "100%" }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      width: "100%", // Expands horizontally in desktop
+                      height: "auto", // Expands vertically in mobile
+                    }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.5 }}
+                    className="w-full md:w-auto"
                   >
                     <p>
                       I have a strong foundation in software engineering, with
@@ -115,7 +119,7 @@ const AboutTop = () => {
           >
             <button
               onClick={() => setShowMore(!showMore)}
-              className="px-6 py-2 w-[120px] h-[40px] text-xs relative bg-[#0b090a] border-2 border-[#00ffcc] text-[#00ffcc] clip-diagonal overflow-hidden transition-all duration-300"
+              className="px-6 py-2 w-[140px] h-[45px] text-xs relative bg-[#0b090a] border-2 border-[#00ffcc] text-[#00ffcc] clip-diagonal overflow-hidden transition-all duration-300"
             >
               <span>{showMore ? "Read Less" : "Read More"}</span>
             </button>

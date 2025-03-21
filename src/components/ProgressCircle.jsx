@@ -30,9 +30,10 @@ const ProgressCircle = ({ label, percent, color }) => {
   }, [percent]);
 
   return (
-    <div className="relative m-10 flex flex-col items-center">
+    <div className="relative flex flex-col items-center m-4 sm:m-10 scale-75 sm:scale-100">
       {/* Outer Circle */}
-      <div className="relative w-[50px] h-[50px] flex justify-center items-center">
+      {/* <div className="relative w-[50px] h-[50px] flex justify-center items-center"> */}
+      <div className="relative w-[min(40vw,200px)] h-[min(40vw,55px)] flex justify-center items-center">
         {/* Dots */}
         {[...Array(dots)].map((_, i) => (
           <div
@@ -41,7 +42,7 @@ const ProgressCircle = ({ label, percent, color }) => {
               i < marked ? "animate-glow" : "bg-[#0007]"
             }`}
             style={{
-              transform: `rotate(${i * rotate}deg) translateY(-60px)`,
+              transform: `rotate(${i * rotate}deg) translateY(-560%)`,
               backgroundColor: i < marked ? color : undefined,
               boxShadow: i < marked ? `0 0 10px ${color}` : undefined,
             }}
@@ -49,8 +50,8 @@ const ProgressCircle = ({ label, percent, color }) => {
         ))}
         {/* Center Text - Inside the Circle */}
         <div className="absolute flex flex-col items-center text-white">
-          <h2 className="text-xl font-light">{currentPercent}%</h2>
-          <small className="text-md block">{label}</small>
+          <h2 className="text-3xl md:text-2xl font-light">{currentPercent}%</h2>
+          <small className="text-lg md:text-lg block">{label}</small>
         </div>
       </div>
     </div>

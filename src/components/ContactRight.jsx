@@ -11,21 +11,14 @@ const ContactRight = () => {
 
   const validateEmail = (email) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!regex.test(email)) {
-      console.error("Invalid email format:", email);
-    }
     return regex.test(email);
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Reset errors
     setErrors({});
 
-    // Validate fields
     const newErrors = {};
     if (!name.trim()) newErrors.name = "Name is required";
     if (!email.trim()) newErrors.email = "Email is required";
@@ -53,18 +46,15 @@ const ContactRight = () => {
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(
-        (response) => {
-          console.log("Email sent successfully!", response);
-          // alert("Message sent successfully!");
+        () => {
           setName("");
           setEmail("");
           setMessage("");
           setErrors({});
-          setIsSent(true); // Set isSent to true on successful submission
+          setIsSent(true);
           setTimeout(() => setIsSent(false), 1500);
         },
-        (error) => {
-          console.error("Failed to send email:", error);
+        () => {
           alert("Failed to send message. Please try again.");
         }
       )
@@ -72,18 +62,19 @@ const ContactRight = () => {
         setIsSubmitting(false);
       });
   };
+
   return (
     <div
-      className="relative p-6 border-2 border-[#00ffcc] bg-black bg-opacity-20 backdrop-blur-lg shadow-lg 
-                      cut-corner hover:shadow-[0_0_20px_5px_rgba(0,255,204,0.5)] transition-all duration-500"
+      className="relative p-4 sm:p-6 border-2 border-[#00ffcc] bg-black bg-opacity-20 backdrop-blur-lg shadow-lg 
+                      cut-corner hover:shadow-[0_0_20px_5px_rgba(0,255,204,0.5)] transition-all duration-500 w-full sm:max-w-md md:max-w-lg lg:max-w-xl"
     >
       {/* Holographic Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,255,204,0.1),transparent)] opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
 
-      <h4 className="text-xl font-semibold text-[#00ffcc]">
+      <h4 className="text-lg sm:text-xl font-semibold text-[#00ffcc]">
         //: Send a Message
       </h4>
-      <form onSubmit={handleSubmit} className="mt-4 space-y-4">
+      <form onSubmit={handleSubmit} className="mt-4 space-y-3 sm:space-y-4">
         <input
           id="name"
           name="name"
@@ -123,9 +114,9 @@ const ContactRight = () => {
         <div className="flex justify-end">
           <button
             type="submit"
-            className={`w-6/12 py-2 ${
+            className={`w-full sm:w-6/12 py-2 ${
               isSent ? "bg-[#72fc3c]" : "bg-[#00ffcc]"
-            } text-black font-bold text-base tracking-wide uppercase border-2 hover:border-[#72fc3c] clip-diagonal transition-colors duration-500 ease-in-out ${
+            } text-black font-bold text-sm sm:text-base tracking-wide uppercase border-2 hover:border-[#72fc3c] clip-diagonal transition-colors duration-500 ease-in-out ${
               isSubmitting && Object.keys(errors).length > 0
                 ? "animate-shake"
                 : ""

@@ -15,25 +15,36 @@ const Header = () => {
       {/* Top Section */}
       <div className="w-full flex flex-row justify-between relative z-10">
         <div className="p-4 m-4 text-4xl font-bold neon-text">//: HOME</div>
-        {/* Navbar */}
         <Navbar />
       </div>
 
       {/* Bottom Section */}
-      <div className="w-full flex flex-row justify-between pt-10 px-10 relative">
-        <div className="mt-18">
-          <h1 className="flex justify-center text-5xl pb-8">
+      <div className="w-full flex flex-col lg:flex-row justify-between items-center pt-2 pb-2 px-2 lg:pt-10 lg:pb-10 lg:px-20 relative">
+        {/* Image on top for mobile, right for large screens */}
+        <div className="flex justify-center lg:order-2">
+          <img
+            className="w-48 h-48 sm:w-56 sm:h-56 lg:w-90 lg:h-90 mt-10 mb-20 transform hover:scale-102 transition-transform duration-500 border-0 border-[#00ffcc] rounded-full p-2 glow-image-cyan"
+            src={headImage}
+            alt="Faizan Habib"
+          />
+        </div>
+
+        {/* Text Content */}
+        <div className="text-center lg:text-left lg:order-1">
+          <h1 className="flex justify-center text-3xl sm:text-3xl md:text-4xl lg:text-5xl pb-8">
             HI, I'M&nbsp;<span className="text-light-lime-green">FAIZAN</span>
           </h1>
-          <h2 className="flex justify-center text-l text-gray-300 pb-4">
-            Machine Learning Engineer | Software Developer
-          </h2>
-          <h1 className="flex justify-center text-l font-bold pb-4">
+          <div className="flex flex-col sm:flex-row justify-center text-md text-gray-300 pb-4 space-x-0 sm:space-x-2">
+            <h2>Machine Learning Engineer |</h2>
+            <h2>Software Developer</h2>
+          </div>
+
+          <h1 className="flex justify-center text-md font-bold pb-4">
             I'm a self-taught Software Developer specialized in Computer
             Science!
           </h1>
 
-          <div className="flex justify-center pt-25">
+          <div className="flex justify-center pt-15">
             <a
               href={RESUME_URL}
               download
@@ -48,15 +59,6 @@ const Header = () => {
 
           {/* Social Media Icons */}
           <Social />
-        </div>
-
-        {/* Head Image */}
-        <div className="relative">
-          <img
-            className="w-90 h-90 mt-10 transform translate-x-[-80px] hover:scale-102 transition-transform duration-500 border-0 border-[#00ffcc] rounded-full p-2 glow-image-cyan"
-            src={headImage}
-            alt="Faizan Habib"
-          />
         </div>
       </div>
     </div>

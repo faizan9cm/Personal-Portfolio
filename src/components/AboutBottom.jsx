@@ -10,9 +10,9 @@ const AboutBottom = () => {
   const [selectedEducation, setSelectedEducation] = useState(null);
 
   return (
-    <section>
+    <section className="px-4 sm:px-6 md:px-10">
       {/* Experience & Education */}
-      <div className="pt-40 grid md:grid-cols-2 gap-10">
+      <div className="pt-40 grid grid-cols-1 md:grid-cols-2 gap-10">
         <div>
           <h3 className="text-3xl font-bold text-[#72fc3c] pb-10">
             //: Experience
@@ -22,7 +22,7 @@ const AboutBottom = () => {
               <ExperienceCard
                 key={index}
                 {...exp}
-                onClick={() => setSelectedExperience(exp)} // Click handler
+                onClick={() => setSelectedExperience(exp)}
               />
             ))}
           </div>
@@ -37,7 +37,7 @@ const AboutBottom = () => {
               <EducationCard
                 key={index}
                 {...edu}
-                onClick={() => setSelectedEducation(edu)} // Click handler
+                onClick={() => setSelectedEducation(edu)}
               />
             ))}
           </div>
@@ -48,9 +48,12 @@ const AboutBottom = () => {
       {selectedExperience && (
         <div
           className="fixed inset-0 flex items-center justify-center bg-black/80 backdrop-blur-sm z-50"
-          onClick={() => setSelectedExperience(null)} // Close on outside click
+          onClick={() => setSelectedExperience(null)}
         >
-          <div onClick={(e) => e.stopPropagation()} className="relative">
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-[90%] md:max-w-[70%]"
+          >
             <BigAboutCard
               {...selectedExperience}
               onClose={() => setSelectedExperience(null)}
@@ -63,9 +66,12 @@ const AboutBottom = () => {
       {selectedEducation && (
         <div
           className="fixed inset-0 flex items-center justify-center bg-black/80 backdrop-blur-sm z-50"
-          onClick={() => setSelectedEducation(null)} // Close on outside click
+          onClick={() => setSelectedEducation(null)}
         >
-          <div onClick={(e) => e.stopPropagation()} className="relative">
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-[90%] md:max-w-[70%]"
+          >
             <BigAboutCard
               {...selectedEducation}
               onClose={() => setSelectedEducation(null)}

@@ -1,15 +1,15 @@
 const EducationCard = ({ title, subtitle, duration, description, onClick }) => {
   return (
     <div
-      className="max-w-xl left-5 p-2 px-4 rounded-md relative bg-[#111111] scale-90 hover:shadow-md hover:shadow-[#00ffcc] cursor-pointer"
+      className="max-w-xl p-2 px-4 rounded-md relative bg-[#111111] scale-90 hover:shadow-md hover:shadow-[#00ffcc] cursor-pointer"
       onClick={onClick}
     >
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-wrap justify-between items-center gap-2">
         <h3 className="text-l font-bold text-[#00ffcc]">{title}</h3>
-        <p className="text-gray-400 text-sm">{subtitle}</p>
+        <p className="text-gray-400 text-sm whitespace-nowrap">{subtitle}</p>
       </div>
       <p className="text-gray-500 text-xs italic">{duration}</p>
-      <p className="mt-2 text-justify">{description}</p>
+      <p className="mt-2 text-justify break-words">{description}</p>
     </div>
   );
 };

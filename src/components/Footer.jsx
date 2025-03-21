@@ -35,13 +35,13 @@ const Footer = () => {
               <span className="text-xs text-gray-200">[ GITHUB ]</span>
             </a>
             <a
-              href="https://discord.com/invite/YOUR_INVITE_CODE"
+              href="https://www.kaggle.com/faizanhabibcs"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-2 text-[#00ffcc] hover:text-[#67f82e] transition-colors duration-300"
             >
-              <i className="fab fa-discord text-xl"></i>
-              <span className="text-xs text-gray-200">[ DISCORD ]</span>
+              <i className="fab fa-kaggle text-xl"></i>
+              <span className="text-xs text-gray-200">[ KAGGLE ]</span>
             </a>
             <a
               href="https://www.patreon.com/faizan9cm"

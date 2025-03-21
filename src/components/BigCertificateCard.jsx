@@ -13,7 +13,7 @@ const BigCertificateCard = ({ title, issuer, date, imageSrc, onClose }) => {
     >
       <motion.div
         onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
-        className="relative bg-[#111] text-white p-6 rounded-lg max-w-4xl w-full h-140 shadow-lg border border-[#00ffcc] hover:shadow-lg hover:shadow-[#00ffcc] transition-all duration-300"
+        className="relative bg-[#111] text-white p-6 rounded-lg max-w-[50%] md:max-w-4xl w-full h-auto md:h-140 min-h-[80vh] shadow-lg border border-[#00ffcc] hover:shadow-lg hover:shadow-[#00ffcc] transition-all duration-300 flex flex-col"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.8, opacity: 0 }}
@@ -31,11 +31,11 @@ const BigCertificateCard = ({ title, issuer, date, imageSrc, onClose }) => {
         <img
           src={imageSrc}
           alt={title}
-          className="w-full h-64 object-cover rounded-lg border border-[#00ffcc]"
+          className="w-full h-48 md:h-64 object-cover rounded-lg border border-[#00ffcc]"
         />
 
         {/* Certificate Details */}
-        <div className="mt-4 text-white text-center">
+        <div className="mt-4 text-white text-center flex-1 flex flex-col justify-center">
           <h3 className="text-2xl font-bold text-glow">{title}</h3>
           <p className="text-lg text-[#00ffcc]">Issued by: {issuer}</p>
           <p className="text-lg text-[#00ffcc]">Date: {date}</p>
