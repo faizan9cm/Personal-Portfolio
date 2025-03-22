@@ -33,32 +33,18 @@ const Skill = ({ id }) => {
     <section
       id={id}
       ref={sectionRef}
-      className="relative text-white pt-25 pb-10 px-10"
+      className="relative text-white pt-15 md:pt-25 pb-0 md:pb-20 px-10"
     >
       {/* Cyberpunk Grid Background */}
       <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none"></div>
 
       {/* Main Heading */}
-      <h3 className="text-4xl font-bold text-[#72fc3c]">//: Skills</h3>
+      <h3 className="text-3xl md:text-4xl font-bold text-[#72fc3c] ml-[-25px] md:ml-0">
+        //: Skills
+      </h3>
 
       {/* Category Tabs */}
-      {/* <div className="flex ml-30 gap-4 mt-10 mb-15 ">
-        {Object.keys(skills).map((category) => (
-          <button
-            key={category}
-            onClick={() => handleCategoryClick(category)} // Use the handler
-            className={`px-6 py-2 text-sm font-semibold transition-all duration-300 clip-diagonal ${
-              activeCategory === category
-                ? "bg-[#6cff32] text-black"
-                : "bg-[#333] text-white hover:bg-[#444]"
-            }`}
-          >
-            {category}
-          </button>
-        ))}
-      </div> */}
-
-      <div className="flex gap-4 mt-10 mb-15 overflow-x-auto whitespace-nowrap px-4">
+      <div className="flex gap-4 mt-5 md:mt-10 mb-15 overflow-x-auto whitespace-nowrap px-4">
         {Object.keys(skills).map((category) => (
           <button
             key={category}
@@ -79,8 +65,8 @@ const Skill = ({ id }) => {
         {skills[activeCategory].map((skill, index) => (
           <div
             key={skill.name}
-            className="relative flex justify-center items-center mx-auto p-4 border skill-border transition-all duration-500 w-32 h-32 sm:w-28 sm:h-28 md:w-42 md:h-42"
-            style={{ clipPath: randomShapes[index] }} // Apply the random shape
+            className="relative flex justify-center items-center mx-auto p-4 border skill-border transition-all duration-500 w-32 h-32 sm:w-28 sm:h-28 md:w-42 md:h-42 tablet:w-36 tablet:h-36"
+            style={{ clipPath: randomShapes[index] }} // No media query here
             onMouseEnter={() => setHoveredSkill(skill.name)}
             onMouseLeave={() => setHoveredSkill(null)}
           >

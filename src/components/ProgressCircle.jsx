@@ -30,7 +30,7 @@ const ProgressCircle = ({ label, percent, color }) => {
   }, [percent]);
 
   return (
-    <div className="relative flex flex-col items-center m-4 sm:m-10 scale-75 sm:scale-100">
+    <div className="relative flex flex-col items-center m-4 sm:m-10 scale-75 sm:scale-95 tablet-scale">
       {/* Outer Circle */}
       {/* <div className="relative w-[50px] h-[50px] flex justify-center items-center"> */}
       <div className="relative w-[min(40vw,200px)] h-[min(40vw,55px)] flex justify-center items-center">

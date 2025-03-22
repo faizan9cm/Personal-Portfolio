@@ -13,7 +13,7 @@ const BigCertificateCard = ({ title, issuer, date, imageSrc, onClose }) => {
     >
       <motion.div
         onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
-        className="relative bg-[#111] text-white p-6 rounded-lg max-w-[50%] md:max-w-4xl w-full h-auto md:h-140 min-h-[80vh] shadow-lg border border-[#00ffcc] hover:shadow-lg hover:shadow-[#00ffcc] transition-all duration-300 flex flex-col"
+        className="relative bg-[#111] text-white p-6 rounded-lg max-w-[100%] md:max-w-4xl w-full h-auto md:h-140 min-h-[80vh] shadow-lg border border-[#00ffcc] hover:shadow-lg hover:shadow-[#00ffcc] transition-all duration-300 flex flex-col"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.8, opacity: 0 }}

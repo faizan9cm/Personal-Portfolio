@@ -1,7 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const BigAboutCard = ({ title, subtitle, duration, description, onClose }) => {
+const BigAboutCard = ({
+  title,
+  subtitle,
+  duration,
+  description,
+  extraDetails,
+  onClose,
+}) => {
   return (
     <motion.div
       className="fixed inset-0 flex items-center justify-center p-4"
@@ -14,7 +21,7 @@ const BigAboutCard = ({ title, subtitle, duration, description, onClose }) => {
       <motion.div
         onClick={(e) => e.stopPropagation()}
         className="relative bg-[#111111] text-white p-6 rounded-lg border-2 border-[#00ffcc] hover:shadow-lg hover:shadow-[#00ffcc] transition-all duration-300 
-                   w-[50%] h-auto md:w-full md:max-w-5xl"
+                   w-[100%] h-auto md:w-full md:max-w-5xl"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.8, opacity: 0 }}
@@ -40,9 +47,18 @@ const BigAboutCard = ({ title, subtitle, duration, description, onClose }) => {
         <p className="text-gray-500 text-sm italic mb-4">{duration}</p>
 
         {/* Description */}
-        <p className="text-justify text-gray-300 leading-relaxed break-words">
+        <p className="text-justify text-gray-300 mb-4 leading-relaxed break-words">
           {description}
         </p>
+
+        {/* Extra details */}
+        {extraDetails && extraDetails.length > 0 && (
+          <ul className="text-justify text-gray-300 leading-relaxed list-disc pl-5 font-bold text-xl">
+            {extraDetails.map((detail, index) => (
+              <li key={index}>{detail}</li>
+            ))}
+          </ul>
+        )}
       </motion.div>
     </motion.div>
   );

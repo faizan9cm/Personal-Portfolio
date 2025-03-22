@@ -22,6 +22,21 @@
   }
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+  .tablet\:w-36 {
+    width: 9rem; /* 36 Tailwind size */
+  }
+  .tablet\:h-36 {
+    height: 9rem;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1024px) {
+  .tablet-scale {
+    transform: scale(0.9); /* Adjust as needed */
+  }
+}
+
 @font-face {
   font-family: "arcade";
   src: url("/src/assets/fonts/ARCADECLASSIC.TTF") format("truetype");

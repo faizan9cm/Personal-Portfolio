@@ -1,7 +1,4 @@
 // Function to get the icon from the public folder
-// const getIcon = (skillName) => {
-//   return `/skills-icons/${skillName.toLowerCase()}.png`;
-// };
 
 const icons = import.meta.glob("/src/assets/images/skills-icons/*.png", {
   eager: true,

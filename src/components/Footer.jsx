@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="text-white pt-20 pb-10 px-6 bg-[#0b090a] relative overflow-hidden">
+    <footer className="text-white pt-8 md:pt-20 pb-10 px-6 bg-[#0b090a] relative overflow-hidden">
       {/* Neon Glow Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#0b090a] via-[#00ffcc] to-[#0b090a] opacity-10 pointer-events-none"></div>
 
@@ -11,9 +11,50 @@ const Footer = () => {
 
       {/* Footer Content */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 relative">
+        {/* Right Section: Quick Links */}
+        <div className="order-1 md:order-2 text-right md:text-right arcade-font">
+          <h4 className="text-xl font-bold text-[#67f82e] mb-4">
+            //: Quick Links
+          </h4>
+          <ul className="space-y-2">
+            <li>
+              <a
+                href="#about"
+                className="text-gray-200 hover:text-[#00ffcc] transition-colors duration-300"
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
+                href="#projects"
+                className="text-gray-200 hover:text-[#00ffcc] transition-colors duration-300"
+              >
+                Projects
+              </a>
+            </li>
+            <li>
+              <a
+                href="#skills"
+                className="text-gray-200 hover:text-[#00ffcc] transition-colors duration-300"
+              >
+                Skills
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                className="text-gray-200 hover:text-[#00ffcc] transition-colors duration-300"
+              >
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+
         {/* Left Section: Social Links */}
-        <div className="text-center md:text-left">
-          <h4 className="text-xs mb-8">//: SOCIAL</h4>
+        <div className="order-2 md:order-1 text-center md:text-left">
+          <h4 className="text-xs mb-8 text-left md:text-left">//: SOCIAL</h4>
           {/* Vertical layout */}
           <div className="flex flex-col justify-center md:justify-start space-y-4">
             <a
@@ -64,54 +105,13 @@ const Footer = () => {
           {/* Footer Text */}
           <div className="mt-10">
             <h1 className="flex justify-center md:justify-start font-bold text-xl">
-              DESIGNED AND BUILT BY&nbsp;
+              BUILT BY&nbsp;
               <p className="text-light-lime-green">FAIZAN HABIB</p>
             </h1>
             <p className="text-gray-300 text-sm mt-2">
               © 2025 Faizan Habib | All Rights Reserved.
             </p>
           </div>
-        </div>
-
-        {/* Right Section: Quick Links */}
-        <div className="text-center md:text-right arcade-font">
-          <h4 className="text-xl font-bold text-[#67f82e] mb-4">
-            //: Quick Links
-          </h4>
-          <ul className="space-y-2">
-            <li>
-              <a
-                href="#about"
-                className="text-gray-200 hover:text-[#00ffcc] transition-colors duration-300"
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="#projects"
-                className="text-gray-200 hover:text-[#00ffcc] transition-colors duration-300"
-              >
-                Projects
-              </a>
-            </li>
-            <li>
-              <a
-                href="#skills"
-                className="text-gray-200 hover:text-[#00ffcc] transition-colors duration-300"
-              >
-                Skills
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className="text-gray-200 hover:text-[#00ffcc] transition-colors duration-300"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
         </div>
       </div>
 

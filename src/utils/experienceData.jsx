@@ -1,16 +1,41 @@
 export const experience = [
   {
+    title: "Freelance Data Engineer",
+    subtitle: "Azure Power",
+    duration: "Dec 2024 - Jan 2025",
+    description:
+      "As a freelance Data Engineer at Azure Power, I optimized the inverter performance analysis process, significantly improving data processing efficiency and reporting speed.",
+    extraDetails: [
+      "Automated data aggregation and processing from 60-65 Excel files using Python (NumPy, Pandas), reducing processing time from over 1 hour to 12-15 minutes.",
+      "Calculated key performance indicators (KPIs) such as EMP, EP, Expected Generation, and Delta, streamlining performance analysis for multiple sites.",
+      "Rewrote the data processing pipeline, optimizing workflows and automating report generation for faster analysis and decision-making.",
+    ],
+  },
+
+  {
     title: "Data Analyst Intern",
     subtitle: "RetroFox International Shipping LLP",
     duration: "Jun 2024 - Nov 2024",
     description:
-      "Developed data models to improve logistics efficiency, analyzed large datasets, and optimized operational strategies.",
+      "Analyzed large datasets related to export logistics, sales, and supply chain performance to identify key trends and optimize operations. Developed reports and dashboards to track shipment performance, sales KPIs, and market segmentation insights.",
+    extraDetails: [
+      "Managed and analyzed datasets on freight costs, delivery times, and inventory turnover.",
+      "Created reports and dashboards to monitor export activities and sales KPIs.",
+      "Conducted customer and market segmentation to optimize regional sales strategies.",
+      "Applied predictive analytics for demand forecasting and inventory optimization.",
+      "Developed interactive data visualizations using Excel and Power BI for stakeholders.",
+    ],
   },
+
   {
     title: "Competitive Programming Intern",
     subtitle: "AMU - Dept. of Computer Science",
     duration: "Mar 2023 - May 2023",
     description:
-      "Assisted students in algorithmic problem-solving, optimized coding approaches, and built real-world programming challenges.",
+      "Solved 200+ DSA problems of varying difficulty across platforms including Coding Ninjas CodeStudio, LeetCode, and GeeksforGeeks.",
+    extraDetails: [
+      "Strengthened problem-solving skills and algorithmic thinking through hands-on practice.",
+      "Gained experience in data structures, algorithms, and competitive programming techniques.",
+    ],
   },
 ];

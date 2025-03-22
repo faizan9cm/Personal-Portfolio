@@ -12,9 +12,9 @@ const AboutBottom = () => {
   return (
     <section className="px-4 sm:px-6 md:px-10">
       {/* Experience & Education */}
-      <div className="pt-40 grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div className="pt-20 md:pt-30 grid grid-cols-1 md:grid-cols-2 gap-12">
         <div>
-          <h3 className="text-3xl font-bold text-[#72fc3c] pb-10">
+          <h3 className="text-2xl md:text-3xl font-bold text-[#72fc3c] pb-5 md:pb-10 ml-[-20px] md:ml-0">
             //: Experience
           </h3>
           <div className="flex flex-col gap-6">
@@ -29,7 +29,7 @@ const AboutBottom = () => {
         </div>
 
         <div>
-          <h3 className="text-3xl font-bold text-[#72fc3c] pb-10">
+          <h3 className="text-2xl md:text-3xl font-bold text-[#72fc3c] pb-5 md:pb-10 ml-[-20px] md:ml-0">
             //: Education
           </h3>
           <div className="flex flex-col gap-6">

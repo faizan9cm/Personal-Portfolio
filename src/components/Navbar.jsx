@@ -12,10 +12,9 @@ const Navbar = () => {
   };
 
   return (
-    // <div className="fixed top-6 right-5 z-50 w-full flex justify-end px-4">
     <div className="fixed top-5 right-1 z-50 w-full flex justify-end px-4">
       {/* Desktop Navbar */}
-      <div className="hidden md:flex items-center justify-center max-w-[650px] w-full py-3 bg-[#111] clip-diagonal border border-[#00ffcc] hover:border-[#111] transition-all duration-500 arcade-font text-sm space-x-10">
+      <div className="hidden lg:flex items-center justify-center max-w-[650px] w-full py-3 bg-[#111] clip-diagonal border border-[#00ffcc] hover:border-[#111] transition-all duration-500 arcade-font text-sm space-x-10">
         {["about", "projects", "skills", "certificates", "contact"].map(
           (section) => (
             <button
@@ -29,8 +28,8 @@ const Navbar = () => {
         )}
       </div>
 
-      {/* Mobile Navbar */}
-      <div className="md:hidden flex">
+      {/* Mobile & Tablet Navbar */}
+      <div className="lg:hidden flex">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="p-2 bg-[#111] border border-[#00ffcc] hover:border-[#c3ff49] transition-all duration-300 rounded-md"

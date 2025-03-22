@@ -21,20 +21,20 @@ const Header = () => {
       {/* Bottom Section */}
       <div className="w-full flex flex-col lg:flex-row justify-between items-center pt-2 pb-2 px-2 lg:pt-10 lg:pb-10 lg:px-20 relative">
         {/* Image on top for mobile, right for large screens */}
-        <div className="flex justify-center lg:order-2">
+        <div className="flex justify-center lg:order-2 md:mt-15 lg:mt-0">
           <img
-            className="w-48 h-48 sm:w-56 sm:h-56 lg:w-90 lg:h-90 mt-10 mb-20 transform hover:scale-102 transition-transform duration-500 border-0 border-[#00ffcc] rounded-full p-2 glow-image-cyan"
+            className="w-48 h-48 sm:w-56 sm:h-56 md:w-90 md:h-90 lg:w-90 lg:h-90 mt-10 mb-20 transform hover:scale-102 transition-transform duration-500 border-0 border-[#00ffcc] rounded-full p-2 glow-image-cyan"
             src={headImage}
             alt="Faizan Habib"
           />
         </div>
 
         {/* Text Content */}
-        <div className="text-center lg:text-left lg:order-1">
-          <h1 className="flex justify-center text-3xl sm:text-3xl md:text-4xl lg:text-5xl pb-8">
+        <div className="text-center lg:text-left lg:order-1 md:mt-20 lg:mt-0">
+          <h1 className="flex justify-center text-3xl sm:text-3xl md:text-5xl lg:text-5xl pb-8">
             HI, I'M&nbsp;<span className="text-light-lime-green">FAIZAN</span>
           </h1>
-          <div className="flex flex-col sm:flex-row justify-center text-md text-gray-300 pb-4 space-x-0 sm:space-x-2">
+          <div className="flex flex-col sm:flex-row justify-center text-md sm:text-md md:text-xl text-gray-300 pb-4 space-x-0 sm:space-x-2">
             <h2>Machine Learning Engineer |</h2>
             <h2>Software Developer</h2>
           </div>

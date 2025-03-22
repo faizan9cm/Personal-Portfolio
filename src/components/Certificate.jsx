@@ -31,11 +31,11 @@ const Certificate = ({ id }) => {
     <section
       id={id}
       ref={sectionRef}
-      className="text-white pt-25 pb-10 px-4 sm:px-6 md:px-10 relative"
+      className="text-white pt-15 md:pt-25 pb-0 md:pb-10 px-4 sm:px-6 md:px-10 relative"
     >
       <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none"></div>
 
-      <h3 className="text-3xl md:text-4xl font-bold text-[#72fc3c] pb-6 md:pb-10">
+      <h3 className="text-3xl md:text-4xl font-bold text-[#72fc3c] pb-0 md:pb-15">
         //: Certifications
       </h3>
 

@@ -1,3 +1,5 @@
+import portfolio from "../assets/images/portfolio.png";
+
 import React, { useRef } from "react";
 
 const CertificateCard = ({ title, issuer, date, imageSrc, onClick }) => {
@@ -48,7 +50,7 @@ const CertificateCard = ({ title, issuer, date, imageSrc, onClick }) => {
         alt={title}
         className="w-full h-auto max-h-32 object-cover rounded-lg transition-transform duration-500 group-hover:scale-105"
         onError={(e) => {
-          e.target.src = "/path/to/local/fallback-image.jpg";
+          e.target.src = portfolio;
         }}
       />
 
