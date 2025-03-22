@@ -1,6 +1,17 @@
 // Function to get the icon from the public folder
+// const getIcon = (skillName) => {
+//   return `/skills-icons/${skillName.toLowerCase()}.png`;
+// };
+
+const icons = import.meta.glob("/src/assets/images/skills-icons/*.png", {
+  eager: true,
+});
+
 const getIcon = (skillName) => {
-  return `/skills-icons/${skillName.toLowerCase()}.png`;
+  return (
+    icons[`/src/assets/images/skills-icons/${skillName.toLowerCase()}.png`]
+      ?.default || ""
+  );
 };
 
 // Categorized skills with proficiency levels (0-100), icons, and colors
