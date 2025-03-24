@@ -40,7 +40,7 @@ const certificationsData = [
     date: "Feb 2023",
   },
   {
-    title: "ICECI Volunteer 2023",
+    title: "ICECI Volunteer",
     issuer: "Dept. of Computer Science, AMU",
     date: "Feb 2023",
   },
