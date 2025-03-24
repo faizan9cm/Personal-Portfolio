@@ -41,7 +41,7 @@ const certificationsData = [
   },
   {
     title: "ICECI Volunteer 2023",
-    issuer: "The Dept. of Computer Science, AMU",
+    issuer: "Dept. of Computer Science, AMU",
     date: "Feb 2023",
   },
   {

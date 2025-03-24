@@ -49,7 +49,7 @@ export const experience = [
 
   {
     title: "Competitive Programming Intern",
-    subtitle: "AMU - Dept. of Computer Science",
+    subtitle: "Dept. of Computer Science, AMU",
     duration: "Mar 2023 - May 2023",
     ImageSrc: getCertificate("cp"),
     description:
