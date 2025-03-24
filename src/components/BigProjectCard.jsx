@@ -57,7 +57,7 @@ const BigProjectCard = ({
 
         {/* GitHub Icon */}
         <motion.div
-          className="absolute left-[36px] md:left-[44px] top-[112px] md:lg:top-68 z-20"
+          className="absolute left-[36px] md:left-[44px] top-[112px] md:top-61 lg:top-68 z-20"
           animate={{ opacity: hideIcons ? 0 : 1 }}
           transition={{ duration: 0.6 }}
         >
