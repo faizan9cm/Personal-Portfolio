@@ -7,32 +7,28 @@ const ProgressCircle = ({ label, percent, color }) => {
   const [currentPercent, setCurrentPercent] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setMarked((prev) => {
-        if (prev < Math.floor((dots * percent) / 100)) {
-          return prev + 1;
-        } else {
-          clearInterval(interval);
-          return prev;
-        }
-      });
+    let start = 0;
+    let step = Math.max(1, percent / 20); // Adaptive step size for faster animation
 
-      setCurrentPercent((prev) => {
-        if (prev < percent) {
-          return prev + 1;
-        } else {
-          return percent;
-        }
-      });
-    }, 0.5); // Speed of the animation
+    const animate = () => {
+      start += step;
 
-    return () => clearInterval(interval);
+      setMarked(Math.min(Math.floor((dots * start) / 100), dots));
+      setCurrentPercent(Math.min(Math.floor(start), percent));
+
+      if (start < percent) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    setMarked(0);
+    setCurrentPercent(0);
+    requestAnimationFrame(animate); // Start animation
   }, [percent]);
 
   return (
     <div className="relative flex flex-col items-center m-4 sm:m-10 scale-75 sm:scale-95 tablet-scale">
       {/* Outer Circle */}
-      {/* <div className="relative w-[50px] h-[50px] flex justify-center items-center"> */}
       <div className="relative w-[min(40vw,200px)] h-[min(40vw,55px)] flex justify-center items-center">
         {/* Dots */}
         {[...Array(dots)].map((_, i) => (

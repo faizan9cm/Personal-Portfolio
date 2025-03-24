@@ -1,7 +1,7 @@
-import linkedinIcon from "../assets/images/linkedin.png";
-import emailIcon from "../assets/images/email.png";
-import whatsappIcon from "../assets/images/whatsapp.png";
-import githubIcon from "../assets/images/github.png";
+import linkedinIcon from "../assets/images/socials/linkedin.png";
+import emailIcon from "../assets/images/socials/email.png";
+import whatsappIcon from "../assets/images/socials/whatsapp.png";
+import githubIcon from "../assets/images/socials/github.png";
 
 const Social = () => {
   return (

@@ -1,6 +1,15 @@
 import React, { useRef } from "react";
+import githubIcon from "../assets/images/socials/github.png";
 
-const ProjectCard = ({ title, tech, desc, link, imageSrc, onClick }) => {
+const ProjectCard = ({
+  title,
+  tech,
+  desc,
+  sourceLink,
+  link,
+  imageSrc,
+  onClick,
+}) => {
   const cardRef = useRef(null);
 
   const handleMouseMove = (e) => {
@@ -62,22 +71,53 @@ const ProjectCard = ({ title, tech, desc, link, imageSrc, onClick }) => {
         }}
       ></div>
 
+      {/* GitHub Icon  */}
+      <div className="absolute left-5 top-[82px] z-20">
+        <a
+          href={sourceLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block text-[#00ffcc] hover:text-white transition-all"
+          onClick={(e) => e.stopPropagation()} // Prevents triggering the parent onClick
+        >
+          <img
+            src={githubIcon}
+            alt="GitHub"
+            className="w-8 h-8 sm:w-8 sm:h-8 rounded-sm transition duration-300 shadow shadow-[#00ff22] hover:shadow-md hover:shadow-[#eeff00]"
+          />
+        </a>
+      </div>
+
+      {/* Deployed Project Icon */}
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 z-20">
+        <a
+          href={link || "#"}
+          target={link ? "_blank" : "_self"}
+          rel="noopener noreferrer"
+          className={`inline-block transition-all px-3 py-1 rounded-md ${
+            link
+              ? "hover:text-white hover:bg-[#00ff2280] "
+              : "opacity-50 cursor-not-allowed"
+          }`}
+          onClick={(e) => !link && e.preventDefault()}
+        >
+          🔗
+        </a>
+      </div>
+
       {/* Image */}
       <img
         src={imageSrc}
         alt={title}
-        className="w-full h-auto max-h-[8rem] object-cover rounded-md clip-square-offset-left-top transition-transform duration-500 group-hover:scale-105 border-1 border-[#252525]"
+        className="w-full h-auto max-h-[8rem] object-cover rounded-md clip-square-offset-left-top transition-transform duration-500 group-hover:scale-101 border-1 border-[#252525]"
       />
 
       {/* Title Overlay */}
-      <div className="pt-2 text-white text-center">
+      <div className="py-2 text-white text-center relative z-10 pointer-events-auto">
         <h3 className="text-base md:text-lg font-bold text-glow">{title}</h3>
-        <p className="text-xs md:text-sm text-[#00ffcc]">{tech}</p>
-        <p className="text-xs md:text-sm text-[#00ffcc]">{desc}</p>
-
-        <a href={link} className="">
-          [ Explore More ]
-        </a>
+        <p className="flex text-justify px-2 py-1 text-xs md:text-xs text-[#00ffcc]">
+          {desc}
+        </p>
       </div>
 
       {/* Particle Effect */}

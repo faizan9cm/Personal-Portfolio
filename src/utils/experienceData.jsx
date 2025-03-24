@@ -1,3 +1,23 @@
+const certificate = import.meta.glob("/src/assets/images/experiences/*.jpg", {
+  eager: true,
+});
+
+// Function to get the certificates
+const getCertificate = (certificateImage) => {
+  const formattedName = certificateImage.replace(/\s+/g, "-").toLowerCase(); // Ensure matching format
+  const certificatePath = `/src/assets/images/experiences/${formattedName}.jpg`;
+
+  // console.log("Searching for:", certificatePath);
+  // console.log("Available keys:", Object.keys(certificate));
+
+  if (!certificate[certificatePath]) {
+    console.error(`Certificate image not found: ${certificateImage}`);
+    return certificate["/src/assets/images/experiences/fallback.jpg"]?.default;
+  }
+
+  return certificate[certificatePath].default;
+};
+
 export const experience = [
   {
     title: "Freelance Data Engineer",
@@ -31,6 +51,7 @@ export const experience = [
     title: "Competitive Programming Intern",
     subtitle: "AMU - Dept. of Computer Science",
     duration: "Mar 2023 - May 2023",
+    ImageSrc: getCertificate("cp"),
     description:
       "Solved 200+ DSA problems of varying difficulty across platforms including Coding Ninjas CodeStudio, LeetCode, and GeeksforGeeks.",
     extraDetails: [

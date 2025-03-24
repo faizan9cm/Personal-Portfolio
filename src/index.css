@@ -309,6 +309,18 @@ textarea:-webkit-autofill:active {
   );
 }
 
+.clip-diagonal-bottom-left-button {
+  --edge-size: 0.8em;
+  clip-path: polygon(
+    0% 0,
+    100% 0,
+    100% calc(100% - var(--edge-size)),
+    100% 100%,
+    var(--edge-size) 100%,
+    0% calc(100% - var(--edge-size))
+  );
+}
+
 .clip-diagonal-bottom-left-big {
   --edge-size: 3em;
   clip-path: polygon(

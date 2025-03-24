@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import { skills } from "../utils/skillData";
 import ProgressCircle from "./ProgressCircle";
+import { skills } from "../utils/skillData";
 
 const generateRandomClipPath = () => {
   const points = Array.from(
@@ -15,7 +15,7 @@ const generateRandomClipPath = () => {
 };
 
 const Skill = ({ id }) => {
-  const [activeCategory, setActiveCategory] = useState("AI Engineer");
+  const [activeCategory, setActiveCategory] = useState("AI / ML");
   const [hoveredSkill, setHoveredSkill] = useState(null);
   const [randomShapes, setRandomShapes] = useState([]);
   const sectionRef = useRef(null);
@@ -80,10 +80,6 @@ const Skill = ({ id }) => {
                     ? "holo-glitch opacity-100"
                     : "opacity-0"
                 }`}
-                onError={(e) => {
-                  // Fallback to default icon if the image fails to load
-                  e.target.src = "/skills-icons/default.png";
-                }}
               />
               <div
                 className={`absolute w-20 h-20 rounded-full border border-[#00ffcc] transition-all duration-700 ${

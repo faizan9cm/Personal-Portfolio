@@ -1,5 +1,3 @@
-import portfolio from "../assets/images/portfolio.png";
-
 import React, { useRef } from "react";
 
 const CertificateCard = ({ title, issuer, date, imageSrc, onClick }) => {
@@ -49,17 +47,12 @@ const CertificateCard = ({ title, issuer, date, imageSrc, onClick }) => {
         src={imageSrc}
         alt={title}
         className="w-full h-auto max-h-32 object-cover rounded-lg transition-transform duration-500 group-hover:scale-105"
-        onError={(e) => {
-          e.target.src = portfolio;
-        }}
       />
 
       <div className="pt-3 text-white text-center">
         <h3 className="text-base md:text-lg font-bold text-glow">{title}</h3>
-        <p className="text-sm md:text-base text-[#00ffcc]">
-          Issued by: {issuer}
-        </p>
-        <p className="text-sm md:text-base text-[#00ffcc]">Date: {date}</p>
+        <p className="text-sm md:text-md text-[#00ffcc]">By: {issuer}</p>
+        <p className="text-sm md:text-md text-[#00ffcc]">Date: {date}</p>
       </div>
 
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
