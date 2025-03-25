@@ -12,9 +12,9 @@ cut-corner hover:shadow-[0_0_20px_5px_rgba(0,255,204,0.5)] transition-all durati
       <h4 className="text-lg sm:text-xl font-semibold text-[#00ffcc]">
         //: Get in Touch
       </h4>
-      <p className="my-6 sm:my-10 text-gray-300 text-xs sm:text-sm">
-        Feel free to reach out. I am open to projects, collaborations, and
-        futuristic discussions.
+      <p className="my-6 sm:my-10 text-gray-300 text-sm md:text-md font-bold">
+        Always up for exciting projects and tech talks. Let’s make something
+        amazing!
       </p>
       <div className="my-4 sm:my-6 space-y-6 sm:space-y-10 text-sm sm:text-base font-mono">
         <p className="text-[#1fff8f]">
