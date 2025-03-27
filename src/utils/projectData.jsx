@@ -22,7 +22,7 @@ export const projectList = [
     extraDetails:
       "A futuristic, neon-lit portfolio showcasing AI, ML, and full-stack projects with glitch effects, parallax scrolling, and immersive interactions. The website features: Glitch effects and animated section transitions for a dynamic user experience. Parallax scrolling and interactive hover effects to enhance visual depth. Custom background music toggle with sci-fi sound effects. Optimized for responsiveness across mobile and desktop while preserving the cyberpunk aesthetic.",
     sourceLink: "https://github.com/faizan9cm/Personal-Portfolio",
-    link: "https://faizan9cm.github.io/Personal-Portfolio/",
+    link: "https://faizan9cm.vercel.app/",
     imageSrc: getBanner("portfolio"),
   },
   {
@@ -45,6 +45,16 @@ export const projectList = [
       "https://github.com/faizan9cm/Unified-Speech-Recognition-Assistant",
     link: "",
     imageSrc: getBanner("usra"),
+  },
+  {
+    title: "FuncRAG",
+    tech: "Python, FastAPI, FAISS, Sentence-Transformers, PyTorch",
+    desc: "A production-ready API that transforms natural language commands into executable Python code using RAG techniques and vector similarity search.",
+    extraDetails:
+      "Function Registry: Comprehensive collection of automation functions for application control, system monitoring, and command execution. Dynamic Code Generation: Creates executable Python scripts with proper imports and error handling. FAISS Vector Search: Efficient semantic matching of user prompts to functions. Custom Function Registration: API endpoint for adding new functions at runtime. Session Management: Maintains conversation history for contextual interactions.",
+    sourceLink: "https://github.com/faizan9cm/funcrag",
+    link: "",
+    imageSrc: getBanner("registering-custom-function"),
   },
   {
     title: "Question Answering RAG Web App",
