@@ -1,5 +1,4 @@
 import React from "react";
-import VisitCounter from "./VisitCounter";
 
 const Footer = () => {
   return (
@@ -51,7 +50,6 @@ const Footer = () => {
               </a>
             </li>
           </ul>
-          <VisitCounter />
         </div>
 
         {/* Left Section: Social Links */}

@@ -1,6 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import ProgressCircle from "./ProgressCircle";
 import { skills } from "../utils/skillData";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const generateRandomClipPath = () => {
   const points = Array.from(
@@ -19,14 +23,45 @@ const Skill = ({ id }) => {
   const [hoveredSkill, setHoveredSkill] = useState(null);
   const [randomShapes, setRandomShapes] = useState([]);
   const sectionRef = useRef(null);
+  const skillGridRef = useRef(null);
+  const headingRef = useRef(null);
 
   useEffect(() => {
     setRandomShapes(skills[activeCategory].map(() => generateRandomClipPath()));
   }, [activeCategory]);
 
+  useEffect(() => {
+    if (sectionRef.current) {
+      gsap.from(headingRef.current, {
+        opacity: 0,
+        y: -30,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      gsap.from(skillGridRef.current.children, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: skillGridRef.current,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      });
+    }
+  }, [activeCategory]);
+
   const handleCategoryClick = (category) => {
-    setActiveCategory(category); // Update the active category
-    sectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" }); // Scroll to the section
+    setActiveCategory(category);
+    sectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
@@ -39,7 +74,10 @@ const Skill = ({ id }) => {
       <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none"></div>
 
       {/* Main Heading */}
-      <h3 className="text-3xl md:text-4xl font-bold text-[#72fc3c] ml-[-25px] md:ml-0">
+      <h3
+        ref={headingRef}
+        className="text-3xl md:text-4xl font-bold text-[#72fc3c] ml-[-25px] md:ml-0"
+      >
         //: Skills
       </h3>
 
@@ -61,12 +99,15 @@ const Skill = ({ id }) => {
       </div>
 
       {/* Skills Grid */}
-      <div className="items-center mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 px-4 sm:px-10">
+      <div
+        ref={skillGridRef}
+        className="items-center mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 px-4 sm:px-10"
+      >
         {skills[activeCategory].map((skill, index) => (
           <div
             key={skill.name}
             className="relative flex justify-center items-center mx-auto p-4 border skill-border transition-all duration-500 w-32 h-32 sm:w-28 sm:h-28 md:w-42 md:h-42 tablet:w-36 tablet:h-36"
-            style={{ clipPath: randomShapes[index] }} // No media query here
+            style={{ clipPath: randomShapes[index] }}
             onMouseEnter={() => setHoveredSkill(skill.name)}
             onMouseLeave={() => setHoveredSkill(null)}
           >

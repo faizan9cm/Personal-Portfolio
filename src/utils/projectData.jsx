@@ -28,7 +28,7 @@ export const projectList = [
   {
     title: "Medical Chatbot",
     tech: "Python, LangChain, Flask, Meta Llama 3, Pinecone",
-    desc: "This is an end-to-end medical chatbot using Retrieval-Augmented Generation (RAG) to extract and retrieve information from medical PDFs. Powered by Llama 3.3 LLM and integrated with Streamlit, it stores embeddings in Pinecone for efficient similarity search, ensuring accurate and context-aware responses.",
+    desc: "This is an end-to-end medical chatbot using Retrieval-Augmented Generation (RAG) to extract and retrieve information from medical PDFs. Powered by Llama 3.3 LLM, it stores embeddings in Pinecone for efficient similarity search, ensuring accurate and context-aware responses.",
     extraDetails:
       "RAG-based chatbot for enhanced medical document retrieval. PDF processing pipeline to extract and index content. Pinecone vector database for efficient similarity search. Llama 3.3 LLM for intelligent and context-aware responses. Streamlit UI for an interactive and user-friendly experience.",
     sourceLink: "https://github.com/faizan9cm/Medical-Chatbot",

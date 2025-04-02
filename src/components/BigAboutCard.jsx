@@ -1,5 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const BigAboutCard = ({
   title,
@@ -12,9 +16,22 @@ const BigAboutCard = ({
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  useEffect(() => {
+    gsap.from(".big-about-card", {
+      opacity: 0,
+      y: 50,
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: ".big-about-card",
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+    });
+  }, []);
+
   return (
     <motion.div
-      className="fixed inset-0 flex items-center justify-center p-4 bg-black bg-opacity-60"
+      className="fixed inset-0 flex items-center justify-center p-4 bg-black bg-opacity-60 big-about-card"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
