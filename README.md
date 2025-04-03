@@ -8,12 +8,12 @@ A futuristic, cyberpunk-inspired personal portfolio built with **React** and **T
 
 ## 🎨 Features
 
-✅ **Cyberpunk-Inspired UI** - Neon green, cyan, & glitch effects for a futuristic feel  
-✅ **Parallax & Scroll Animations** - Immersive scrolling experience  
-✅ **Glitchy Intro & Hover Effects** - Sci-fi-inspired interactions  
-✅ **Responsive Design:** Fully optimized for mobile, tablet, and desktop.  
-✅ **Dynamic Content Sections** - Smooth transitions between sections  
-✅ **AI & ML Showcase:** Projects and skills focused on AI, ML, and software engineering.
+- **Cyberpunk-Inspired UI** - Neon green, cyan, & glitch effects for a futuristic feel
+- **Parallax & Scroll Animations** - Immersive scrolling experience
+- **Glitchy Intro & Hover Effects** - Sci-fi-inspired interactions
+- **Responsive Design:** Fully optimized for mobile, tablet, and desktop.
+- **Dynamic Content Sections** - Smooth transitions between sections
+- **AI & ML Showcase:** Projects and skills focused on AI, ML, and software engineering.
 
 ## 🛠 Tech Stack
 
@@ -44,9 +44,10 @@ A futuristic, cyberpunk-inspired personal portfolio built with **React** and **T
 ## 📬 Contact
 
 Feel free to connect with me for collaborations, AI, Data Science, or Software Engineering projects.
-🔗 LinkedIn: [linkedin.com/in/faizan9cm](https://linkedin.com/in/faizan9cm)
-🐙 GitHub: [github.com/faizan9cm](https://github.com/faizan9cm)
-📧 Email: faizan9cm@gmail.com
+
+- 🔗 LinkedIn: [linkedin.com/in/faizan9cm](https://linkedin.com/in/faizan9cm)
+- 🐙 GitHub: [github.com/faizan9cm](https://github.com/faizan9cm)
+- 📧 Email: faizan9cm@gmail.com
 
 ---
 
