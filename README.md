@@ -39,7 +39,7 @@ A futuristic, cyberpunk-inspired personal portfolio built with **React** and **T
 
 ## 📸 Screenshots
 
-![Portfolio Screenshot](assets/images/screenshot.png)
+![Portfolio Screenshot](public/screenshot.png)
 
 ## 📬 Contact
 
