@@ -21,11 +21,10 @@ const Project = ({ id }) => {
     if (headingRef.current) {
       gsap.fromTo(
         headingRef.current,
-        { opacity: 0, scale: 0.8, y: 20 },
+        { opacity: 0, x: -50 },
         {
           opacity: 1,
-          scale: 1,
-          y: 0,
+          x: 0,
           duration: 1.2,
           ease: "power3.out",
           scrollTrigger: {
@@ -80,7 +79,7 @@ const Project = ({ id }) => {
     <section
       id={id}
       ref={sectionRef}
-      className="text-white pt-15 md:pt-25 pb-10 px-4 sm:px-6 md:px-10 relative"
+      className="text-white pt-15 md:pt-25 pb-12 px-4 sm:px-6 md:px-10 relative"
     >
       <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none"></div>
 
@@ -93,7 +92,7 @@ const Project = ({ id }) => {
 
       <div
         className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-4 mt-6 md:mt-10 relative justify-center ${
-          showAll ? "mb-6" : "mb-14"
+          showAll ? "mb-0" : "mb-15"
         }`}
       >
         <AnimatePresence>

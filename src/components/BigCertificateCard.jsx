@@ -28,7 +28,7 @@ const BigCertificateCard = ({
       >
         {/* Close Button */}
         <button
-          className="absolute top-2 right-3 text-[#00ffcc] text-xl font-bold hover:text-white transition-colors"
+          className="absolute top-2 right-3 text-[#00ffcc] hover:text-white transition-colors"
           onClick={onClose}
         >
           ✕

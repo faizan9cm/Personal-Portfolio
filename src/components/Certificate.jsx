@@ -12,93 +12,85 @@ const Certificate = ({ id }) => {
   const [showAll, setShowAll] = useState(false);
   const [selectedCertificate, setSelectedCertificate] = useState(null);
   const sectionRef = useRef(null);
-  const buttonRef = useRef(null);
   const headingRef = useRef(null);
   const cardRefs = useRef([]);
 
   useEffect(() => {
-    // Animate heading
     gsap.fromTo(
       headingRef.current,
-      { opacity: 0, y: 50 },
+      { opacity: 0, x: -100 },
       {
         opacity: 1,
-        y: 0,
+        x: 0,
         duration: 1,
         ease: "power3.out",
         scrollTrigger: {
           trigger: headingRef.current,
           start: "top 85%",
-          toggleActions: "play none none none",
         },
       }
     );
-
-    // Animate initial certificate cards
-    cardRefs.current.forEach((card, index) => {
-      gsap.fromTo(
-        card,
-        { opacity: 0, y: 50, scale: 0.9 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1.2,
-          ease: "power3.out",
-          delay: index * 0.15,
-          scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
-    });
   }, []);
 
-  const handleShowAllClick = () => {
-    setShowAll(!showAll);
-
-    setTimeout(() => {
-      if (showAll) {
-        const sectionTop =
-          sectionRef.current.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo({ top: sectionTop, behavior: "smooth" });
-      } else {
-        const buttonTop =
-          buttonRef.current.getBoundingClientRect().top + window.scrollY;
-        const offset = -550;
-        window.scrollTo({ top: buttonTop + offset, behavior: "smooth" });
+  useEffect(() => {
+    cardRefs.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: 40, scale: 0.95 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 90%",
+              toggleActions: "play none none none",
+            },
+            delay: index * 0.1,
+          }
+        );
       }
-    }, 100);
+    });
+  }, [showAll]);
+
+  const handleShowAllClick = () => {
+    setShowAll((prev) => !prev);
+    setTimeout(() => {
+      sectionRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 50);
   };
+
+  const visibleCerts = showAll ? certifications : certifications.slice(0, 3);
 
   return (
     <section
       id={id}
       ref={sectionRef}
-      className="text-white pt-15 md:pt-25 pb-8 md:pb-10 px-4 sm:px-6 md:px-10 relative"
+      className="text-white pt-15 md:pt-25 pb-12 px-4 sm:px-6 md:px-10 relative"
     >
-      <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
 
       <h3
         ref={headingRef}
-        className="text-3xl md:text-4xl font-bold text-[#72fc3c] pb-0 md:pb-15 opacity-0"
+        className="text-3xl md:text-4xl font-bold text-[#72fc3c] pb-0 md:pb-15"
       >
         //: Certifications
       </h3>
 
       <div
-        className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10 sm:mt-6 relative justify-center mx-auto px-6 sm:px-8 md:px-12 max-w-screen-xl  ${
-          showAll ? "mb-6" : "mb-14"
+        className={`grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10 sm:mt-6 px-6 sm:px-8 md:px-12 max-w-screen-xl mx-auto ${
+          showAll ? "mb-0" : "mb-15"
         }`}
       >
         <AnimatePresence>
-          {certifications.slice(0, 3).map((cert, index) => (
+          {visibleCerts.map((cert, index) => (
             <motion.div
-              key={`cert-${index}`}
+              key={cert.title + index}
               ref={(el) => (cardRefs.current[index] = el)}
-              className="certificate-card opacity-0"
+              className="certificate-card"
             >
               <CertificateCard
                 {...cert}
@@ -106,56 +98,15 @@ const Certificate = ({ id }) => {
               />
             </motion.div>
           ))}
-
-          {showAll &&
-            certifications.slice(3).map((cert, index) => (
-              <motion.div
-                key={`cert-${index + 3}`}
-                initial={{
-                  opacity: 0,
-                  scale: 0.5,
-                  rotateX: -45,
-                  rotateY: 15,
-                  filter: "blur(10px)",
-                }}
-                animate={{
-                  opacity: 1,
-                  scale: 1,
-                  rotateX: 0,
-                  rotateY: 0,
-                  filter: "blur(0px)",
-                }}
-                exit={{
-                  opacity: 0,
-                  scale: 0.5,
-                  rotateX: -45,
-                  rotateY: 15,
-                  filter: "blur(10px)",
-                }}
-                transition={{
-                  duration: 0.8,
-                  ease: "easeOut",
-                  delay: index * 0.15,
-                }}
-                className="certificate-card"
-              >
-                <CertificateCard
-                  {...cert}
-                  onClick={() => setSelectedCertificate(cert)}
-                />
-              </motion.div>
-            ))}
         </AnimatePresence>
       </div>
 
       <div className="relative">
         <motion.div
-          ref={buttonRef}
           onClick={handleShowAllClick}
-          className="absolute right-4 md:right-12 bottom-0 flex items-center justify-center w-10 h-10 border-2 border-[#00ffcc] text-[#00ffcc] text-xl cursor-pointer"
-          initial={{ rotate: 0, y: 0 }}
+          className="absolute right-4 md:right-12 bottom-0 flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 border-2 border-[#00ffcc] text-[#00ffcc] text-lg sm:text-xl cursor-pointer"
           animate={{ rotate: showAll ? 180 : 0, y: showAll ? 50 : 0 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
+          transition={{ duration: 0.4 }}
         >
           ↓
         </motion.div>

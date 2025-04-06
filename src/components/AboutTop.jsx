@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ImageCard from "./ImageCard";
 import profileImage from "../assets/images/profile.png";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const generateRandomCharacters = (count) => {
   const characters = "@#/$%^:/&*";
@@ -18,6 +22,7 @@ const AboutTop = () => {
   const [showMore, setShowMore] = useState(false);
   const [isTabletPortrait, setIsTabletPortrait] = useState(false);
   const [characters, setCharacters] = useState(generateRandomCharacters(20));
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const checkTabletPortrait = () => {
@@ -39,8 +44,29 @@ const AboutTop = () => {
     setCharacters(showMore ? [] : generateRandomCharacters(20));
   }, [showMore]);
 
+  // GSAP Scroll Animation
+  useEffect(() => {
+    const element = sectionRef.current;
+
+    gsap.fromTo(
+      element,
+      { opacity: 0, y: 100 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: element,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  }, []);
+
   return (
-    <section className="w-full relative">
+    <section ref={sectionRef} className="w-full relative">
       {/* Floating Neon Characters */}
       <AnimatePresence>
         {characters.map(({ id, char, x, y, delay }) => (

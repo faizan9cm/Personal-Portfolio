@@ -1,9 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const BigAboutCard = ({
   title,
@@ -15,19 +11,6 @@ const BigAboutCard = ({
   onClose,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-
-  useEffect(() => {
-    gsap.from(".big-about-card", {
-      opacity: 0,
-      y: 50,
-      duration: 0.8,
-      scrollTrigger: {
-        trigger: ".big-about-card",
-        start: "top 80%",
-        toggleActions: "play none none reverse",
-      },
-    });
-  }, []);
 
   return (
     <motion.div
@@ -48,7 +31,7 @@ const BigAboutCard = ({
       >
         {/* Close Button */}
         <button
-          className="absolute top-2 right-3 text-[#00ffcc] text-xl font-bold hover:text-white transition"
+          className="absolute top-2 right-3 text-[#00ffcc] hover:text-white transition"
           onClick={onClose}
         >
           ✕
